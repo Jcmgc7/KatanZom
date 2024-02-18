@@ -35,23 +35,23 @@
 
     <Button
         android:id="@+id/moveLeftButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:layout_below="@id/startAnimationButton"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="84dp"
-        android:layout_marginEnd="-174dp"
+        android:layout_marginTop="-47dp"
+        android:layout_marginEnd="9dp"
         android:layout_toStartOf="@id/moveRightButton"
         android:text="Desplazar Izquierda" />
 
     <Button
         android:id="@+id/moveRightButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:layout_below="@id/startAnimationButton"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="177dp"
-        android:layout_marginEnd="-7dp"
+        android:layout_marginTop="-47dp"
+        android:layout_marginEnd="64dp"
         android:text="Desplazar Derecha" />
 
     <Button
@@ -59,16 +59,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="17dp"
+        android:layout_marginStart="203dp"
         android:layout_marginTop="16dp"
         android:text="Start Animation" />
 
     <Button
         android:id="@+id/golpearButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="78dp"
         android:layout_below="@id/moveLeftButton"
-        android:layout_marginTop="-49dp"
+        android:layout_marginTop="-73dp"
         android:text="GOLPEAR" />
 
 </RelativeLayout>
