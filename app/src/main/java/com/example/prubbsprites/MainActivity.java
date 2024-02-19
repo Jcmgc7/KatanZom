@@ -1,5 +1,6 @@
 package com.example.prubbsprites;
 
+import android.content.Intent;
 import android.graphics.drawable.AnimatedImageDrawable;
 import android.media.MediaPlayer;
 import android.net.wifi.p2p.WifiP2pManager;
@@ -24,7 +25,11 @@ public class MainActivity extends AppCompatActivity {
     MediaPlayer mediaPlayer;
     MediaPlayer mediaZombi;
 
-    public int contadores = 10;
+    int stop = 0;
+    int contador = 0;
+
+    int ganar = 0;
+    public int contadores = 90;
     private TextView  contador2;
     public  ImageView imageView;
     private ImageView enemigoImageView;
@@ -76,17 +81,11 @@ public class MainActivity extends AppCompatActivity {
         anchoOriginal = imageView.getLayoutParams().width;
         alturaOriginal = imageView.getLayoutParams().height;
 
-        Button startAnimationButton = findViewById(R.id.startAnimationButton);
-        startAnimationButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                    if (!animatedImageDrawable.isRunning()) {
-                        animatedImageDrawable.start();
-                    }
-                }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            if (!animatedImageDrawable.isRunning()) {
+                animatedImageDrawable.start();
             }
-        });
+        }
 
         Button moveRightButton = findViewById(R.id.moveRightButton);
         moveRightButton.setOnClickListener(new View.OnClickListener() {
@@ -122,12 +121,12 @@ public class MainActivity extends AppCompatActivity {
                 mediaPlayer.start();
                 float enemigoDistance = Math.abs(enemigoImageView.getX() - imageView.getX());
                 if (enemigoDistance <= distanciaDanio) {
+                    mediaZombi.start();
                     enemigoImageView.setVisibility(View.INVISIBLE);
 
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            mediaZombi.start();
                             enemigoImageView.setVisibility(View.VISIBLE);
                             resetEnemigoPosition();
                         }
@@ -138,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                while (contadores > 0) {
+                while (contadores > 0 && stop != 1) {
                     try {
                         // Pausar el hilo durante 1 segundo
                         Thread.sleep(1000);
@@ -150,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
                         public void run() {
                             updateCounter();
                         }
+
                     });
                 }
             }
@@ -164,6 +164,10 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 contador2.setText(String.valueOf(contadores));
             }
+        } else {
+            media.stop();
+            startActivity(new Intent(MainActivity.this, MainActivity3.class));
+            ganar = 1;
         }
     }
 
@@ -175,6 +179,12 @@ public class MainActivity extends AppCompatActivity {
                 enemigoImageView.setTranslationX(enemigoPosition);
 
                 if (enemigoPosition <= limitePantalla - enemigoImageView.getWidth()) {
+                    contador++;
+                    if (contador == 2) {
+                        startActivity(new Intent(MainActivity.this, MainActivity4.class));
+                        media.stop();
+                        stop = 1;
+                    }
                     enemigoPosition = imageView.getWidth() - enemigoImageView.getWidth();
                     enemigoImageView.setTranslationX(enemigoPosition);
                 }
@@ -186,8 +196,9 @@ public class MainActivity extends AppCompatActivity {
                         animatedEnemyDrawable.start();
                     }
                 }
-
-                moveEnemigo();
+                if (ganar == 0) {
+                    moveEnemigo();
+                }
             }
         }, 100);
     }

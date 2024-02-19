@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity3">
+
+    <ImageView
+        android:id="@+id/backgroundImageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_x="0dp"
+        android:layout_y="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/castle" />
+
+    <Button
+        android:id="@+id/moveLeftButton"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_x="56dp"
+        android:layout_y="23dp"
+        android:background="@drawable/flechaderecha"
+        android:onClick="salir" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="468dp"
+        android:layout_height="210dp"
+        android:layout_x="196dp"
+        android:layout_y="104dp"
+        app:srcCompat="@drawable/win" />
+
+</AbsoluteLayout>

@@ -33,10 +33,10 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="269dp"
-        android:layout_height="161dp"
-        android:layout_x="268dp"
-        android:layout_y="30dp"
-        app:srcCompat="@drawable/doom" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="169dp"
+        android:layout_y="67dp"
+        app:srcCompat="@drawable/titulo" />
 
 </AbsoluteLayout>
