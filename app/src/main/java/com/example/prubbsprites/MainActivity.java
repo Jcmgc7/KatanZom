@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     MediaPlayer media;
     private Handler handler = new Handler();
     MediaPlayer media_sd;
+    MediaPlayer mediaPlayer;
+
     public int contadores = 10;
     private TextView  contador2;
     public  ImageView imageView;
@@ -45,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mediaPlayer = MediaPlayer.create(this, R.raw.espada);
         contador2 = findViewById(R.id.contador);
         if (media == null) {
             media = MediaPlayer.create(this, R.raw.sound);
@@ -114,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loadNewGif();
-
+                mediaPlayer.start();
                 float enemigoDistance = Math.abs(enemigoImageView.getX() - imageView.getX());
                 if (enemigoDistance <= distanciaDanio) {
                     enemigoImageView.setVisibility(View.INVISIBLE);

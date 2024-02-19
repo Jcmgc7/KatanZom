@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:backgroundTint="#000000"
+    android:foregroundTint="#000000"
+    tools:context=".MainActivity2">
+
+    <ImageView
+        android:id="@+id/backgroundImageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_x="0dp"
+        android:layout_y="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/castle" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="178dp"
+        android:layout_height="71dp"
+        android:layout_x="314dp"
+        android:layout_y="233dp"
+        android:background="#000000"
+        android:onClick="iniciar"
+        android:text="Jugar"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#130000"
+        android:textColorLink="#FFFFFF" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="269dp"
+        android:layout_height="161dp"
+        android:layout_x="268dp"
+        android:layout_y="30dp"
+        app:srcCompat="@drawable/doom" />
+
+</AbsoluteLayout>
