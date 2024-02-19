@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private Handler handler = new Handler();
     MediaPlayer media_sd;
     MediaPlayer mediaPlayer;
+    MediaPlayer mediaZombi;
 
     public int contadores = 10;
     private TextView  contador2;
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mediaPlayer = MediaPlayer.create(this, R.raw.espada);
+        mediaZombi = MediaPlayer.create(this, R.raw.zombi);
         contador2 = findViewById(R.id.contador);
         if (media == null) {
             media = MediaPlayer.create(this, R.raw.sound);
@@ -121,9 +123,11 @@ public class MainActivity extends AppCompatActivity {
                 float enemigoDistance = Math.abs(enemigoImageView.getX() - imageView.getX());
                 if (enemigoDistance <= distanciaDanio) {
                     enemigoImageView.setVisibility(View.INVISIBLE);
+
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                            mediaZombi.start();
                             enemigoImageView.setVisibility(View.VISIBLE);
                             resetEnemigoPosition();
                         }
