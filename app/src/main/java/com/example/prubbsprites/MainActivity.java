@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Cambiar el GIF del personaje al mover a la derecha
-                loadNewGif(R.drawable.asrandar, nuevoAnchoMovimiento, nuevaAlturaMovimiento);
+                //loadNewGif(R.drawable.asrandar, nuevoAnchoMovimiento, nuevaAlturaMovimiento);
                 isMoving = true;
 
                 currentTranslationX += 20; // Incrementar la posición actual

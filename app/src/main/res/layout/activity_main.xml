@@ -53,26 +53,26 @@
         android:layout_height="75dp"
         android:layout_below="@id/startAnimationButton"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="-68dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginTop="-69dp"
+        android:layout_marginEnd="40dp"
         android:background="@drawable/flechaizquierda" />
 
     <Button
         android:id="@+id/startAnimationButton"
-        android:layout_width="167dp"
-        android:layout_height="66dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_alignParentStart="true"
         android:layout_marginStart="4dp"
         android:layout_marginTop="16dp"
-        android:text="Start Animation" />
+        android:background="@drawable/iniciar"/>
 
     <Button
         android:id="@+id/golpearButton"
-        android:layout_width="wrap_content"
-        android:layout_height="78dp"
+        android:layout_width="105dp"
+        android:layout_height="105dp"
         android:layout_below="@id/moveLeftButton"
         android:layout_marginTop="1dp"
-        android:text="GOLPEAR" />
+        android:background="@drawable/golpes" />
 
     <TextView
         android:id="@+id/contador"
