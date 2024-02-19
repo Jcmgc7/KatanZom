@@ -19,7 +19,7 @@
         android:layout_height="126dp"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="77dp"
-        android:src="@drawable/samurai" />
+        android:src="@drawable/asra" />
 
     <ImageView
         android:id="@+id/enemigoImageView"
