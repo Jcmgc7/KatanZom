@@ -2,6 +2,7 @@ package com.example.prubbsprites;
 
 import android.graphics.drawable.AnimatedImageDrawable;
 import android.media.MediaPlayer;
+import android.net.wifi.p2p.WifiP2pManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,14 +10,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Timer;
 
 public class MainActivity extends AppCompatActivity {
 
     MediaPlayer media;
+    private Handler handler = new Handler();
     MediaPlayer media_sd;
-    private ImageView imageView;
+    public int contadores = 10;
+    private TextView  contador2;
+    public  ImageView imageView;
     private ImageView enemigoImageView;
     private AnimatedImageDrawable animatedImageDrawable;
     private int defaultGifResource = R.drawable.asra;
@@ -36,15 +43,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if(media==null){
-            media = MediaPlayer.create(this,R.raw.sound);
-        }
-
-        if ((!media.isPlaying())){
-            media.start();
-        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        contador2 = findViewById(R.id.contador);
+        if (media == null) {
+            media = MediaPlayer.create(this, R.raw.sound);
+        }
+
+        if ((!media.isPlaying())) {
+            media.start();
+        }
 
         imageView = findViewById(R.id.imageView);
         defaultGifResource = R.drawable.asra;
@@ -120,6 +128,36 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (contadores > 0) {
+                    try {
+                        // Pausar el hilo durante 1 segundo
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            updateCounter();
+                        }
+                    });
+                }
+            }
+        }).start();
+    }
+    private void updateCounter() {
+
+        contadores--;
+        if (contadores >= 0) {
+            if (contadores < 10) {
+                contador2.setText("0" + String.valueOf(contadores));
+            } else {
+                contador2.setText(String.valueOf(contadores));
+            }
+        }
     }
 
     private void moveEnemigo() {

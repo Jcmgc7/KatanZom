@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="#000000"
+    android:backgroundTint="#000000"
+    android:backgroundTintMode="add"
     tools:context=".MainActivity">
 
 
@@ -39,10 +42,10 @@
         android:layout_height="75dp"
         android:layout_below="@id/startAnimationButton"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="-47dp"
-        android:layout_marginEnd="9dp"
+        android:layout_marginTop="-67dp"
+        android:layout_marginEnd="36dp"
         android:layout_toStartOf="@id/moveRightButton"
-        android:text="Desplazar Izquierda" />
+        android:background="@drawable/flechaderecha" />
 
     <Button
         android:id="@+id/moveRightButton"
@@ -50,16 +53,16 @@
         android:layout_height="75dp"
         android:layout_below="@id/startAnimationButton"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="-47dp"
-        android:layout_marginEnd="64dp"
-        android:text="Desplazar Derecha" />
+        android:layout_marginTop="-68dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/flechaizquierda" />
 
     <Button
         android:id="@+id/startAnimationButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="167dp"
+        android:layout_height="66dp"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="203dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="16dp"
         android:text="Start Animation" />
 
@@ -68,7 +71,17 @@
         android:layout_width="wrap_content"
         android:layout_height="78dp"
         android:layout_below="@id/moveLeftButton"
-        android:layout_marginTop="-73dp"
+        android:layout_marginTop="1dp"
         android:text="GOLPEAR" />
+
+    <TextView
+        android:id="@+id/contador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="00"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        android:textSize="34sp" />
 
 </RelativeLayout>
